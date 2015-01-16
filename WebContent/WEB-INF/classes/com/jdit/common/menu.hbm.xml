@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.jdit.common" default-access="field">
+	<class name="BaseMenu" table="BASE_MENU">
+		<id name="OBJECTID" column="OBJECTID">
+			<generator class="native"/>
+		</id>
+		<property name="name" type="string" column="NAME" not-null="true"/>
+	</class>
+	<class name="CascadeMenu" table="CASCADE_MENU">
+		<id name="OBJECTID" column="OBJECTID">
+			<generator class="native"/>
+		</id>
+		<property name="name" type="string" column="NAME" not-null="true"/>
+		<many-to-one 
+            name="parent" 
+            column="PARENT" 
+            class="CascadeMenu" 
+            node="parent" 
+            lazy="false">
+		</many-to-one>
+	</class>
+</hibernate-mapping>

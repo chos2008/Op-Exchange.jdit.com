@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+<!-- 
+	<bean id="promptService"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<bean class="com.eastcom.smartplatform.prompt.impl.PromptServiceImpl">
+				<property name="dao" ref="promptDao"></property>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+ -->
+    <bean id="deviceSessionAttributeService"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<bean class="com.eastcom.smartplatform.device.impl.DeviceSessionAttributeServiceImpl">
+				<property name="deviceSessionAttributeDao" ref="deviceSessionAttributeDao"></property>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+    <bean id="deviceService" 
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<bean class="com.eastcom.smartplatform.device.impl.DeviceFacadeImpl">
+				<property name="dao" ref="deviceDao"></property>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="import*">PROPAGATION_REQUIRED</prop>
+				<!-- <prop key="incrementImportDevicesFromFile">PROPAGATION_REQUIRED</prop> -->
+				
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="persistentManager" class="com.eastcom.orm.client.PersistentManagerFactory" factory-method="createPM">
+        <constructor-arg type="java.lang.String" value="cerccore"/>
+        <constructor-arg type="java.lang.String" value="192.168.1.101"/>
+        <constructor-arg type="java.lang.String" value="51099"/>
+        <constructor-arg type="java.lang.String" value="admin"/>
+        <constructor-arg type="java.lang.String" value="admin"/>
+    </bean>
+
+    <bean id="deviceCoreService" class="com.eastcom.smartplatform.device.impl.DeviceCoreServiceImpl">
+        <property name="persistentAccessor" ref="persistentManager"></property>
+    </bean>
+    <!-- 
+        <bean id="deviceCoreService" class="com.eastcom.smartplatform.device.impl.DeviceCoreServiceImpl">
+            <constructor-arg type="java.lang.String" value="cerccore"/>
+            <constructor-arg type="java.lang.String" value="211.139.136.199"/>
+            <constructor-arg type="java.lang.String" value="51099"/>
+            <constructor-arg type="java.lang.String" value="admin"/>
+            <constructor-arg type="java.lang.String" value="7708801314520"/>
+        </bean>
+        -->
+
+    <bean id="parameterDictionary"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<bean class="com.eastcom.smartplatform.template.impl.ParameterDictionaryImpl">
+				<property name="parameterEntryDao" ref="parameterEntryDao"></property>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="exist*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="keywordLibaray" 
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<bean class="com.eastcom.smartplatform.KeywordLibarayImpl">
+				<property name="keywordDao" ref="keywordHibernateDao"/>
+				<property name="keywordTypeDao" ref="keywordTypeHibernateDao"/>
+				<property name="primaryKeywordDao" ref="primaryKeywordHibernateDao"/>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="import*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="exist*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

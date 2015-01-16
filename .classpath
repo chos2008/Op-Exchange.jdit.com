@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="test/function"/>
+	<classpathentry kind="src" path="test/performance"/>
+	<classpathentry kind="src" path="test/resource"/>
+	<classpathentry kind="src" path="test/unit"/>
+	<classpathentry kind="src" path="web"/>
+	<classpathentry kind="src" path="Op-Exchange Access API"/>
+	<classpathentry kind="src" path="src/main/pay"/>
+	<classpathentry kind="src" path="src/main/core"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="lib" path="library/test/function/spring-mock.jar"/>
+	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
+</classpath>

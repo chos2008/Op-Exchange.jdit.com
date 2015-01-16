@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+		<property name="hibernate.connection.driver_class">
+	     	com.mysql.jdbc.Driver
+		</property>
+		<!-- 
+		<property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+		-->
+
+ 		<property name="hibernate.connection.characterEncoding">GBK</property>
+
+	    <property name="hibernate.connection.url">
+	    	jdbc:mysql://localhost:3306/commerce
+	    </property>
+ 	    <!--
+ 	    <property name="hibernate.connection.url">jdbc:hsqldb:file:db/SmartPlatform</property>
+ 	    -->
+
+	    <property name="hibernate.connection.username">root</property>
+	    <property name="hibernate.connection.password">jxcoco1128</property>
+	    <!--
+        <property name="connection.username">sa</property>
+    	<property name="hibernate.connection.password"></property>
+    	-->
+
+		<property name="hibernate.dialect">
+     		org.hibernate.dialect.MySQLDialect
+	    </property>
+        <!--
+        <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+        -->
+
+	    <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.show_sql">true</property>
+
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<property name="hibernate.jdbc.fetch_size">50</property>
+		<property name="hibernate.jdbc.batch_size">0</property>
+	     
+		<mapping resource="com/jdit/common/menu.hbm.xml"/>
+		<mapping resource="com/jdit/finance/model/budget.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

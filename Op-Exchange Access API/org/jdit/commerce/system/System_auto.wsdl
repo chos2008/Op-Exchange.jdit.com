@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:System" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:System" xmlns:intf="urn:System" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+
+   <wsdl:message name="getSysInfoRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="getSysVersionResponse">
+
+      <wsdl:part name="getSysVersionReturn" type="soapenc:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSysInfoResponse">
+
+      <wsdl:part name="getSysInfoReturn" type="soapenc:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSysVersionRequest">
+
+   </wsdl:message>
+
+   <wsdl:portType name="System">
+
+      <wsdl:operation name="getSysInfo">
+
+         <wsdl:input message="impl:getSysInfoRequest" name="getSysInfoRequest"/>
+
+         <wsdl:output message="impl:getSysInfoResponse" name="getSysInfoResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSysVersion">
+
+         <wsdl:input message="impl:getSysVersionRequest" name="getSysVersionRequest"/>
+
+         <wsdl:output message="impl:getSysVersionResponse" name="getSysVersionResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SystemSoapBinding" type="impl:System">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getSysInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSysInfoRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:System" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSysInfoResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:System" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSysVersion">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSysVersionRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:System" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSysVersionResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:System" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SystemService">
+
+      <wsdl:port binding="impl:SystemSoapBinding" name="System">
+
+         <wsdlsoap:address location="http://localhost:8080/axis/services/System"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

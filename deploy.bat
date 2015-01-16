@@ -1,0 +1,9 @@
+cd D:\home\admin\dev\workstation\j2ee\JustYou\commerce
+d:
+
+cd cost
+javac org\jdit\commerce\system\System.java
+java -cp %CLASSPATH%;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\axis.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\commons-logging.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\commons-collections.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\jaxrpc.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\commons-discovery-0.2.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\saaj.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\wsdl4j-1.5.1.jar org.apache.axis.wsdl.Java2WSDL -o org\jdit\commerce\system\System_auto.wsdl -l"http://localhost:8080/axis/services/System" -n "urn:System" -p"org.jdit.commerce.system.business" "urn:System" org.jdit.commerce.system.System
+
+java -cp %CLASSPATH%;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\axis.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\commons-logging.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\commons-collections.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\jaxrpc.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\commons-discovery-0.2.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\saaj.jar;D:\home\admin\dev\workstation\j2ee\JustYou\commerce\WebContent\WEB-INF\lib\wsdl4j-1.5.1.jar org.apache.axis.wsdl.WSDL2Java -o . -d Session -s -t -U admin -P jxcoco1128 -c org.jdit.commerce.system.business.SystemServiceEndpoint -S true -Nurn:System org.jdit.commerce.system.business org\jdit\commerce\system\System_auto.wsdl
+cd ..
